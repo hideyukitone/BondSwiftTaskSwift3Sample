@@ -14,6 +14,8 @@
 		8735DC011F25D61900D7D00E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8735DBFF1F25D61900D7D00E /* LaunchScreen.storyboard */; };
 		8735DC0C1F25D61900D7D00E /* BondSwiftTaskSwift3SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735DC0B1F25D61900D7D00E /* BondSwiftTaskSwift3SampleTests.swift */; };
 		8735DC171F25D61A00D7D00E /* BondSwiftTaskSwift3SampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735DC161F25D61A00D7D00E /* BondSwiftTaskSwift3SampleUITests.swift */; };
+		8792A7921F25E2D000FD3B8E /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735DC261F25D8A600D7D00E /* Bond.framework */; };
+		8792A7931F25E2D000FD3B8E /* SwiftTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735DC251F25D8A600D7D00E /* SwiftTask.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		8735DC121F25D61900D7D00E /* BondSwiftTaskSwift3SampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BondSwiftTaskSwift3SampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8735DC161F25D61A00D7D00E /* BondSwiftTaskSwift3SampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondSwiftTaskSwift3SampleUITests.swift; sourceTree = "<group>"; };
 		8735DC181F25D61A00D7D00E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8735DC251F25D8A600D7D00E /* SwiftTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftTask.framework; path = Carthage/Build/iOS/SwiftTask.framework; sourceTree = "<group>"; };
+		8735DC261F25D8A600D7D00E /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8792A7921F25E2D000FD3B8E /* Bond.framework in Frameworks */,
+				8792A7931F25E2D000FD3B8E /* SwiftTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 				8735DC0A1F25D61900D7D00E /* BondSwiftTaskSwift3SampleTests */,
 				8735DC151F25D61900D7D00E /* BondSwiftTaskSwift3SampleUITests */,
 				8735DBF41F25D61900D7D00E /* Products */,
+				8735DC241F25D8A600D7D00E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +132,15 @@
 			path = BondSwiftTaskSwift3SampleUITests;
 			sourceTree = "<group>";
 		};
+		8735DC241F25D8A600D7D00E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8735DC261F25D8A600D7D00E /* Bond.framework */,
+				8735DC251F25D8A600D7D00E /* SwiftTask.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +151,7 @@
 				8735DBEF1F25D61900D7D00E /* Sources */,
 				8735DBF01F25D61900D7D00E /* Frameworks */,
 				8735DBF11F25D61900D7D00E /* Resources */,
+				8735DC271F25D8D700D7D00E /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -193,13 +210,16 @@
 				TargetAttributes = {
 					8735DBF21F25D61900D7D00E = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 					};
 					8735DC061F25D61900D7D00E = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						TestTargetID = 8735DBF21F25D61900D7D00E;
 					};
 					8735DC111F25D61900D7D00E = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						TestTargetID = 8735DBF21F25D61900D7D00E;
 					};
 				};
@@ -250,6 +270,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8735DC271F25D8D700D7D00E /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Bond.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftTask.framework",
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8735DBEF1F25D61900D7D00E /* Sources */ = {
@@ -364,6 +403,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -411,6 +451,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -420,11 +461,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M2CCPT32P8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BondSwiftTaskSwift3Sample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hideyuki.okuni.BondSwiftTaskSwift3Sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -434,11 +480,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M2CCPT32P8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BondSwiftTaskSwift3Sample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hideyuki.okuni.BondSwiftTaskSwift3Sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -453,7 +504,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hideyuki.okuni.BondSwiftTaskSwift3SampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BondSwiftTaskSwift3Sample.app/BondSwiftTaskSwift3Sample";
 			};
@@ -469,7 +520,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hideyuki.okuni.BondSwiftTaskSwift3SampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BondSwiftTaskSwift3Sample.app/BondSwiftTaskSwift3Sample";
 			};
@@ -484,7 +535,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hideyuki.okuni.BondSwiftTaskSwift3SampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BondSwiftTaskSwift3Sample;
 			};
@@ -499,7 +550,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hideyuki.okuni.BondSwiftTaskSwift3SampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BondSwiftTaskSwift3Sample;
 			};
@@ -524,6 +575,7 @@
 				8735DC1D1F25D61A00D7D00E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8735DC1E1F25D61A00D7D00E /* Build configuration list for PBXNativeTarget "BondSwiftTaskSwift3SampleTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +584,7 @@
 				8735DC201F25D61A00D7D00E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8735DC211F25D61A00D7D00E /* Build configuration list for PBXNativeTarget "BondSwiftTaskSwift3SampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +593,7 @@
 				8735DC231F25D61A00D7D00E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
